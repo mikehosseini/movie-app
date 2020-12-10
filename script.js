@@ -54,7 +54,6 @@ async function getMovies(url) {
 // ╚═╝░░░░░╚═╝╚═╝╚═╝░░╚═╝╚══════╝  
 
 function listMovies(movies) {
-    // clear main
     main.innerHTML = "";
   // calls a function once for each element in an array, in order:
     movies.forEach((movie) => {
