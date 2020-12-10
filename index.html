@@ -7,58 +7,6 @@
         <link rel="stylesheet" href="style.css" />
         <script defer src="script.js"></script>
     </head>
-  <!--<nav class="navbar is-spaced is-info" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a class="navbar-item" href="https://purrfect-gold-auroraceratops.glitch.me/">
-      <img src="https://cdn.glitch.com/679f8215-53b7-4d85-a959-e4c9f117e744%2Flogomovieapp.png?v=1607311779451" width="100" height="100">
-    </a>
-
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </a>
-  </div>
-
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a class="navbar-item">
-        Newest
-      </a>
-
-      <a class="navbar-item">
-        Highest Rated
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Genre
-        </a>
-
-        <div class="navbar-dropdown">
-          <a class="navbar-item">
-            Action
-          </a>
-          <a class="navbar-item">
-            Drama
-          </a>
-          <a class="navbar-item">
-            Thriller
-          </a>
-          <hr class="navbar-divider">
-        </div>
-      </div>
-    </div>
-
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div class="buttons">
-        </div>
-      </div>
-    </div>
-  </div>
-</nav>
--->
     <body>
 
 
@@ -68,10 +16,9 @@
 <div class ="img-bg">
   <div class="alpha-bg">
         
-            <nav class="navbar is-spaced is-info" role="navigation" aria-label="main navigation">
+            <nav class="navbar is-spaced is-link" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
 
-                <img src="https://cdn.glitch.com/679f8215-53b7-4d85-a959-e4c9f117e744%2Flogomovieapp.png?v=1607311779451" id="center" style="width:201px;height:201px;">
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -80,31 +27,43 @@
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
+  
 
     <div class="navbar-start">
-      <a class="navbar-item">
+      
+                      <img class="navbar-item" onclick="window.location.reload();" src="https://cdn.glitch.com/679f8215-53b7-4d85-a959-e4c9f117e744%2Flogo2%20(1).png?v=1607576825726" id="center" style="width:201px;height:201px;">
+      
+      <a class="navbar-item" id="newest" >
         Newest
       </a>
 
-      <a class="navbar-item">
-        Highest Rated
+      <a class="navbar-item" id ="topRated">
+        Top Rated
       </a>
 
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
-          Genre
+          Genres
         </a>
 
         <div class="navbar-dropdown">
-          <a class="navbar-item">
+          <a class="navbar-item" id="action">
             Action
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item" id="comedy">
+            Comedy
+          </a>
+          <a class="navbar-item" id="drama">
             Drama
           </a>
-          <a class="navbar-item">
+          <a class="navbar-item" id="family">
+            Family
+          </a>
+
+          <a class="navbar-item" id="thriller">
             Thriller
           </a>
+      
           <hr class="navbar-divider">
         </div>
       </div>
@@ -116,12 +75,20 @@
                 <div class="level">
             <div class="level-item">
                 <div class ="refresh-button">
-<!--                   <button onclick="window.location.reload();">Home</button> -->
+\
               </div>
+              
+<!--               
+██████╗░░█████╗░██████╗░
+██╔══██╗██╔══██╗██╔══██╗
+██████╦╝███████║██████╔╝
+██╔══██╗██╔══██║██╔══██╗
+██████╦╝██║░░██║██║░░██║
+╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝ -->
               
                 <div class="search">
                     <form id="form">
-                        <input type="text" id="search" class="input" placeholder="SEARCH . . .">    
+                        <input type="text" id="search" class="input" placeholder="SEARCH . . ."> 
                     </form>
                 </div>
             </div>
@@ -130,24 +97,23 @@
     </div>
   </div>
 </nav>
+    
+<!--                   
+████████╗███████╗░██████╗████████╗██╗███╗░░██╗░██████╗░
+╚══██╔══╝██╔════╝██╔════╝╚══██╔══╝██║████╗░██║██╔════╝░
+░░░██║░░░█████╗░░╚█████╗░░░░██║░░░██║██╔██╗██║██║░░██╗░
+░░░██║░░░██╔══╝░░░╚═══██╗░░░██║░░░██║██║╚████║██║░░╚██╗
+░░░██║░░░███████╗██████╔╝░░░██║░░░██║██║░╚███║╚██████╔╝
+░░░╚═╝░░░╚══════╝╚═════╝░░░░╚═╝░░░╚═╝╚═╝░░╚══╝░╚═════╝░ -->
+<!-- everything below aint needed -->
+    
+<!--     everything inside the listmovies function goes inside main -->
+    
   <main id="main">
-        <div class="level">
-            <div class="level-item">
-                <div class ="refresh-button">
-<!--                   <button onclick="window.location.reload();">Home</button> -->
-              </div>
-              
-               <!-- <div class="search">
-                    <form id="form">
-                        <input type="text" id="search" class="input" placeholder="SEARCH . . .">    
-                    </form>
-                </div> -->
-            </div>
-        </div>
       </main>
       <br>
       <br>
           </div>
       </div>
-    </body>
+  </body>
 </html>
