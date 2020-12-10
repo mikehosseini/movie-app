@@ -7,10 +7,6 @@
     "start": "electron ."
   },
   "keywords": [],
-  "dependencies": {
-    "bulma": "^0.9.1",
-    "electron-squirrel-startup": "^1.0.0"
-  },
   "author": "",
   "license": "ISC"
 }
