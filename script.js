@@ -1,3 +1,5 @@
+
+
 const APIURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=a7e57cb63bb601a072aac4703302f6dc"
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
 const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=a7e57cb63bb601a072aac4703302f6dc&query="
@@ -7,6 +9,30 @@ const main = document.getElementById("main");
 const form = document.getElementById("form");
 
 
+// ░█████╗░██╗░░░░░██████╗░███████╗███╗░░██╗
+// ██╔══██╗██║░░░░░██╔══██╗██╔════╝████╗░██║
+// ███████║██║░░░░░██║░░██║█████╗░░██╔██╗██║
+// ██╔══██║██║░░░░░██║░░██║██╔══╝░░██║╚████║
+// ██║░░██║███████╗██████╔╝███████╗██║░╚███║
+// ╚═╝░░╚═╝╚══════╝╚═════╝░╚══════╝╚═╝░░╚══╝
+
+
+const NEWESTAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=primary_release_date.desc&include_adult=false&include_video=false&page=1&release_date.lte=2020-12-10&vote_count.gte=1"
+const TOPRATEDAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&release_date.lte=2020-12-10&vote_count.gte=1"
+const ACTIONAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=28"
+const DRAMAAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=18"
+const THRILLERAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=53"
+const COMEDYAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=35"
+const FAMILYAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=10751"
+
+
+// ██╗░░██╗███████╗██╗░░░██╗██╗███╗░░██╗
+// ██║░██╔╝██╔════╝██║░░░██║██║████╗░██║
+// █████═╝░█████╗░░╚██╗░██╔╝██║██╔██╗██║
+// ██╔═██╗░██╔══╝░░░╚████╔╝░██║██║╚████║
+// ██║░╚██╗███████╗░░╚██╔╝░░██║██║░╚███║
+// ╚═╝░░╚═╝╚══════╝░░░╚═╝░░░╚═╝╚═╝░░╚══╝
+
 // initially get fav movies
 getMovies(APIURL);
 
@@ -14,20 +40,29 @@ async function getMovies(url) {
     const response = await fetch(url);
     const responseData = await response.json();
 
-    console.log(responseData);
+  //  console.log(responseData);
 
     listMovies(responseData.results);
 }
 
+
+// ███╗░░░███╗██╗██╗░░██╗███████╗  
+// ████╗░████║██║██║░██╔╝██╔════╝  
+// ██╔████╔██║██║█████═╝░█████╗░░  
+// ██║╚██╔╝██║██║██╔═██╗░██╔══╝░░  
+// ██║░╚═╝░██║██║██║░╚██╗███████╗  
+// ╚═╝░░░░░╚═╝╚═╝╚═╝░░╚═╝╚══════╝  
+
 function listMovies(movies) {
     // clear main
     main.innerHTML = "";
-  
   // calls a function once for each element in an array, in order:
     movies.forEach((movie) => {
-        const { poster_path, title, vote_average, release_date, popularity, original_language, overview, id, genres} = movie;
+        const { poster_path, title, vote_average, release_date, popularity, original_language, overview, id, genre_ids } = movie;
+
 
         const movieEl = document.createElement("div");
+
         movieEl.classList.add("movie");
         
         movieEl.innerHTML = ` 
@@ -52,9 +87,9 @@ function listMovies(movies) {
                   <h3>Popularity:</h3>
                   ${popularity}
             </div>
-            <div class="genre">
-                  <h3>Genre:</h3>
-                  ${genres}
+            <div class="genres">
+                  <h3>Genre ID's:</h3>
+                  ${genre_ids}
             </div>
             </div>  
             <div class="originlanguage">
@@ -74,6 +109,21 @@ function listMovies(movies) {
   
 }
 
+
+// ░█████╗░██╗░░░░░██╗░█████╗░███████╗
+// ██╔══██╗██║░░░░░██║██╔══██╗██╔════╝
+// ███████║██║░░░░░██║██║░░╚═╝█████╗░░
+// ██╔══██║██║░░░░░██║██║░░██╗██╔══╝░░
+// ██║░░██║███████╗██║╚█████╔╝███████╗
+// ╚═╝░░╚═╝╚══════╝╚═╝░╚════╝░╚══════╝
+
+
+// When we pull information from the API, this function will be called
+  // the value of "ratings" will 
+  // the if statements will be 
+// 
+
+
 function getClassByRate(vote) {
     if (vote >= 8) {
         return "green";
@@ -83,6 +133,14 @@ function getClassByRate(vote) {
         return "red";
     }
 }
+
+
+// ░█████╗░██╗░░░░░██████╗░███████╗███╗░░██╗
+// ██╔══██╗██║░░░░░██╔══██╗██╔════╝████╗░██║
+// ███████║██║░░░░░██║░░██║█████╗░░██╔██╗██║
+// ██╔══██║██║░░░░░██║░░██║██╔══╝░░██║╚████║
+// ██║░░██║███████╗██████╔╝███████╗██║░╚███║
+// ╚═╝░░╚═╝╚══════╝╚═════╝░╚══════╝╚═╝░░╚══╝
 
 form.addEventListener("submit", (enterkey) => {
     enterkey.preventDefault();
@@ -96,6 +154,52 @@ form.addEventListener("submit", (enterkey) => {
     }
 });
 
+var newestMovies = document.getElementById("newest");
+newestMovies.addEventListener("click", () => {
+    event.preventDefault();
+        getMovies(NEWESTAPI);
+
+});
+var topRatedMovies = document.getElementById("topRated");
+topRatedMovies.addEventListener("click", () => {
+    event.preventDefault();
+        getMovies(TOPRATEDAPI);
+
+});
+var actionMovies = document.getElementById("action");
+actionMovies.addEventListener("click", () => {
+    event.preventDefault();
+        getMovies(ACTIONAPI);
+});
+var familyMovies = document.getElementById("family");
+familyMovies.addEventListener("click", () => {
+    event.preventDefault();
+        getMovies(FAMILYAPI);
+
+ });
+var dramaMovies = document.getElementById("drama");
+dramaMovies.addEventListener("click", () => {
+    event.preventDefault();
+        getMovies(DRAMAAPI);
+
+ });
+ var thrillerMovies = document.getElementById("thriller");
+thrillerMovies.addEventListener("click", () => {
+     event.preventDefault();
+         getMovies(THRILLERAPI);
+
+ });
+ var comedyMovies = document.getElementById("comedy");
+comedyMovies.addEventListener("click", () => {
+    event.preventDefault();
+        getMovies(COMEDYAPI);
+
+ });
+
+// form.addEventListener("click", ("#newest") => {
+//    enterkey.preventDefault();
+//        getMovies(NEWESTAPI);
+//});
 
 
 // ████████╗███████╗░██████╗████████╗██╗███╗░░██╗░██████╗░
