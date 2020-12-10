@@ -1,6 +1,6 @@
 
-/* ----------------- ADD a Google FONT -------------------*/
-
+/* ----------------- Jocelyn -------------------*/
+/* selecting all the elements: border-box means that the width and height properties include the content, padding, and border, but do not include the margin */
 * {
     box-sizing: border-box;
 }
@@ -17,12 +17,15 @@ header {
   
 }
 
+
+/* search bar the .input was placed here so that the search bar wouldnt change size*/
 .search, .input {
-    color: #fff;
+
     width: 33%;
     padding: 0px 0px;
     margin-right:910px;
     transform: translateX(-15%);
+
 }
 
 
@@ -30,14 +33,18 @@ header {
     width: 100%;
     font-size: 20px;
     padding: 0.5rem 1rem;
-}
+} 
+
 
 main {
     display: flex;
+  /* The flex-wrap property specifies whether the flexible items should wrap or not. also Specifies that the flexible items will wrap, if necessary, in reverse order*/
     flex-wrap: wrap-reverse;
     margin:50px;
     margin-left:125px;
 }
+
+/* affects the sizing of the boxes */
 
 .movie {
     width: 290px;
@@ -51,22 +58,17 @@ main {
 
 }
 
-button {
-    font-size: 18px;
-    padding: 4.5px 20px;
-    font-weight: bold;
-    
-}
+/* changes sizing of image within the movie boxes*/
 
 .movie img {
     width: 100%;
 }
 
-.movie-info, .release-date, .popularity, .originlanguage {
+/* everything inside the movie boxes */
+.movie-info, .release-date, .popularity, .originlanguage, .genres {
     color: #eee;
     display: flex;
     font-weight: bold;
-  
     justify-content: space-between;
     padding: 0.5rem 1rem 1rem;
     letter-spacing: 0.5px;
@@ -82,18 +84,27 @@ button {
     font-weight: bold;
     padding: 2px 8px;
 }
+
+/* setting color of the text for ratings 9-10 */
 .movie-info span.green {
     color: rgb(39, 189, 39);
 }
 
+/* ratings 5-8 */
 .movie-info span.orange {
     color: orange;
 }
 
+/* below 5 rating */
 .movie-info span.red {
     color: rgb(189, 42, 42);
 }
 
+/* ----------------- Jocelyn -------------------*/
+
+
+
+/* ----------------- Kevin -------------------*/
 .summary {
     background-color: #fff;
     color: black;
@@ -119,22 +130,18 @@ button {
 
 }
 
-
-/* aldens part */
-.navbar {
-    padding: 1rem;
-    position: relative;
-    z-index: -19;
-    
-}
-
 .center {
-  position:fixed;
+  position:relative;
   display: block;
-  margin-left: 0;
-  margin-right: auto;
+
   width: 50%;
   padding-top: 10px;
+}
+
+img .center:hover{
+  transition: all 0.2s ease-in-out;
+  width: 200px;
+  cursor: pointer;
 }
 
 /* kc's parts */
@@ -147,7 +154,7 @@ button {
 /*   -webkit-transition: all .4s ease; */
   border: 1px solid black;
   box-shadow: 20px 20px 20px 10px rgba(6, 8, 10, 0.4);
-/*     box-shadow: 20px 20px 20px 2000px rgba(6, 8, 10, 0.4) inset; */
+/*   box-shadow: 20px 20px 20px 2000px rgba(6, 8, 10, 0.4); */
 /* pseudo modal [not actually wanted compared to actual modal - remove transition delay to make this work] */
  
 }
@@ -167,6 +174,15 @@ button {
 /*   background-size: cover; */
 }
 
+/* ----------------- alden -------------------*/
+.navbar {
+    padding: 1rem;
+    position: fixed;
+    
+}
+
+
+
 /* ████████╗███████╗░██████╗████████╗██╗███╗░░██╗░██████╗░
    ╚══██╔══╝██╔════╝██╔════╝╚══██╔══╝██║████╗░██║██╔════╝░
    ░░░██║░░░█████╗░░╚█████╗░░░░██║░░░██║██╔██╗██║██║░░██╗░
@@ -175,34 +191,3 @@ button {
    ░░░╚═╝░░░╚══════╝╚═════╝░░░░╚═╝░░░╚═╝╚═╝░░╚══╝░╚═════╝░
   - kc
  */
-
-/* .modal {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    opacity: 0;
-    visibility: hidden;
-    transform: scale(1.1);
-    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-  
-  .close-button {
-    float: right;
-    width: 1.5rem;
-    line-height: 1.5rem;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 0.25rem;
-    background-color: lightgray;
-}
-  .close-button:hover {
-    background-color: darkgray;
-}
-.show-modal {
-    opacity: 1;
-    visibility: visible;
-    transform: scale(1.0);
-    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
-} */
