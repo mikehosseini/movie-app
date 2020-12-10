@@ -1,13 +1,20 @@
-
-
-const APIURL = "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=a7e57cb63bb601a072aac4703302f6dc"
+// Constant containing the main URL for pulling list of movies from the TMDB API
+const APIURL =
+  "https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=a7e57cb63bb601a072aac4703302f6dc";
+// Constant containing the URL to access images from the TMDB API
 const IMGPATH = "https://image.tmdb.org/t/p/w1280";
-const SEARCHAPI = "https://api.themoviedb.org/3/search/movie?&api_key=a7e57cb63bb601a072aac4703302f6dc&query="
+// Constant containing the URL for search function from the TMDB API
+const SEARCHAPI =
+  "https://api.themoviedb.org/3/search/movie?&api_key=a7e57cb63bb601a072aac4703302f6dc&query=";
 
+// Pulls the element inside the "search" ID
 const search = document.getElementById("search");
-const main = document.getElementById("main");
+
+// Form for search bar
 const form = document.getElementById("form");
 
+// Used for listmovies to put all movies in main
+const main = document.getElementById("main");
 
 // ░█████╗░██╗░░░░░██████╗░███████╗███╗░░██╗
 // ██╔══██╗██║░░░░░██╔══██╗██╔════╝████╗░██║
@@ -16,15 +23,28 @@ const form = document.getElementById("form");
 // ██║░░██║███████╗██████╔╝███████╗██║░╚███║
 // ╚═╝░░╚═╝╚══════╝╚═════╝░╚══════╝╚═╝░░╚══╝
 
-
-const NEWESTAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=primary_release_date.desc&include_adult=false&include_video=false&page=1&release_date.lte=2020-12-10&vote_count.gte=1"
-const TOPRATEDAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&release_date.lte=2020-12-10&vote_count.gte=1"
-const ACTIONAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=28"
-const DRAMAAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=18"
-const THRILLERAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=53"
-const COMEDYAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=35"
-const FAMILYAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=10751"
-
+// Constant's containing URLS to pull movies from the TMDB API in a sorted order
+// Sorted by Newest
+const NEWESTAPI =
+  "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=primary_release_date.desc&include_adult=false&include_video=false&page=1&release_date.lte=2020-12-10&vote_count.gte=1";
+//Sorted by the Top Rated
+const TOPRATEDAPI =
+  "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=vote_average.desc&include_adult=false&include_video=false&page=1&release_date.lte=2020-12-10&vote_count.gte=1";
+// Sorted by the Action genre
+const ACTIONAPI =
+  "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=28";
+// Sorted by the Drama genre
+const DRAMAAPI =
+  "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=18";
+// Sorted by the Thriller genre
+const THRILLERAPI =
+  "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=53";
+// Sorted by the Comedy genre
+const COMEDYAPI =
+  "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=35";
+// Sorted by the Family genre
+const FAMILYAPI =
+  "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=10751";
 
 // ██╗░░██╗███████╗██╗░░░██╗██╗███╗░░██╗
 // ██║░██╔╝██╔════╝██║░░░██║██║████╗░██║
@@ -33,38 +53,56 @@ const FAMILYAPI = "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63
 // ██║░╚██╗███████╗░░╚██╔╝░░██║██║░╚███║
 // ╚═╝░░╚═╝╚══════╝░░░╚═╝░░░╚═╝╚═╝░░╚══╝
 
-// initially get fav movies
+//This will call the async function, getMovies when passing the URL link w/ api key
 getMovies(APIURL);
 
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+//async functions will return promise
+//This func will return will suspend UNTIL the "await" expression
+// returns a promise that is fulfilled or rejected
+// We use this function to call and take information from the Website with our API key
 async function getMovies(url) {
-    const response = await fetch(url);
-    const responseData = await response.json();
+  const response = await fetch(url);
+  // https://developer.mozilla.org/en-US/docs/Web/API/Response
+  const responseData = await response.json();
 
-  //  console.log(responseData);
+  // console.log(responseData);   //keep for testing purposes
 
-    listMovies(responseData.results);
+  //responseData is an object with the .results being tied to metadata from the TMDB when we call information from the API
+  listMovies(responseData.results);
 }
 
-
-// ███╗░░░███╗██╗██╗░░██╗███████╗  
-// ████╗░████║██║██║░██╔╝██╔════╝  
-// ██╔████╔██║██║█████═╝░█████╗░░  
-// ██║╚██╔╝██║██║██╔═██╗░██╔══╝░░  
-// ██║░╚═╝░██║██║██║░╚██╗███████╗  
-// ╚═╝░░░░░╚═╝╚═╝╚═╝░░╚═╝╚══════╝  
+// ███╗░░░███╗██╗██╗░░██╗███████╗
+// ████╗░████║██║██║░██╔╝██╔════╝
+// ██╔████╔██║██║█████═╝░█████╗░░
+// ██║╚██╔╝██║██║██╔═██╗░██╔══╝░░
+// ██║░╚═╝░██║██║██║░╚██╗███████╗
+// ╚═╝░░░░░╚═╝╚═╝╚═╝░░╚═╝╚══════╝
 
 function listMovies(movies) {
-    main.innerHTML = "";
-  // calls a function once for each element in an array, in order:
-    movies.forEach((movie) => {
-        const { poster_path, title, vote_average, release_date, popularity, original_language, overview, id, genre_ids } = movie;
+  // clears the inside of main tag
+  main.innerHTML = "";
 
+  // calls a function once for each element in the movie object, in order:
+  movies.forEach(movie => {
+    const {
+      poster_path,
+      title,
+      vote_average,
+      release_date,
+      popularity,
+      original_language,
+      overview,
+      id,
+      genre_ids
+    } = movie;
 
-        const movieEl = document.createElement("div");
+    const movieEl = document.createElement("div");
+    movieEl.classList.add("movie");
 
-        movieEl.classList.add("movie");
-        
-        movieEl.innerHTML = ` 
+    //replace everything in main tag with divs below
+
+    movieEl.innerHTML = ` 
         
       <a href="https://www.themoviedb.org/movie/${id}" target="_blank">
    
@@ -75,7 +113,7 @@ function listMovies(movies) {
             <div class="movie-info">
                 <h3>${title}</h3>
                 <span class="${getClassByRate(
-                    vote_average
+                  vote_average
                 )}">${vote_average}</span>
             </div>
             <div class="release-date">
@@ -103,11 +141,9 @@ function listMovies(movies) {
            </a>
         `;
 
-        main.appendChild(movieEl);
-    });
-  
+    main.appendChild(movieEl);
+  });
 }
-
 
 // ░█████╗░██╗░░░░░██╗░█████╗░███████╗
 // ██╔══██╗██║░░░░░██║██╔══██╗██╔════╝
@@ -116,23 +152,19 @@ function listMovies(movies) {
 // ██║░░██║███████╗██║╚█████╔╝███████╗
 // ╚═╝░░╚═╝╚══════╝╚═╝░╚════╝░╚══════╝
 
-
 // When we pull information from the API, this function will be called
-  // the value of "ratings" will 
-  // the if statements will be 
-// 
-
+// the value of "ratings" will be checked against IF statements
+//if the vote is the value 1-10, it will be assigned a color to and transfer into the listmovies function where it is being called
 
 function getClassByRate(vote) {
-    if (vote >= 8) {
-        return "green";
-    } else if (vote >= 5) {
-        return "orange";
-    } else {
-        return "red";
-    }
+  if (vote >= 8) {
+    return "green";
+  } else if (vote >= 5) {
+    return "orange";
+  } else {
+    return "red";
+  }
 }
-
 
 // ░█████╗░██╗░░░░░██████╗░███████╗███╗░░██╗
 // ██╔══██╗██║░░░░░██╔══██╗██╔════╝████╗░██║
@@ -141,123 +173,72 @@ function getClassByRate(vote) {
 // ██║░░██║███████╗██████╔╝███████╗██║░╚███║
 // ╚═╝░░╚═╝╚══════╝╚═════╝░╚══════╝╚═╝░░╚══╝
 
-form.addEventListener("submit", (enterkey) => {
-    enterkey.preventDefault();
+// The following are the event listeners that allow user input to change
+// the order in which the movies appear on the website
 
-    const searchTerm = search.value;
-
-    if (searchTerm) {
-        getMovies(SEARCHAPI + searchTerm);
-
-        search.value = "";
-    }
+// This is the Event Listener thats allows the search bar to receive user input
+// and add it to the SEARCHAPIURL to find movies
+form.addEventListener("submit", enterkey => {
+  enterkey.preventDefault();
+  const searchTerm = search.value;
+  if (searchTerm) {
+    getMovies(SEARCHAPI + searchTerm);
+    search.value = "";
+  }
 });
 
+// This Event Listener waits for a user to click on the Newest nav-item
+// to call the getMovies function using the NEWEST API URL instead of the default one
 var newestMovies = document.getElementById("newest");
 newestMovies.addEventListener("click", () => {
-    event.preventDefault();
-        getMovies(NEWESTAPI);
-
+  event.preventDefault();
+  getMovies(NEWESTAPI);
 });
+
+// This Event Listener waits for a user to click on the Newest nav-item
+// to call the getMovies function using the TOPRATED API URL instead of the default one
 var topRatedMovies = document.getElementById("topRated");
 topRatedMovies.addEventListener("click", () => {
-    event.preventDefault();
-        getMovies(TOPRATEDAPI);
-
+  event.preventDefault();
+  getMovies(TOPRATEDAPI);
 });
+
+// This Event Listener waits for a user to click on the Newest nav-item
+// to call the getMovies function using the ACTION API URL instead of the default one
 var actionMovies = document.getElementById("action");
 actionMovies.addEventListener("click", () => {
-    event.preventDefault();
-        getMovies(ACTIONAPI);
+  event.preventDefault();
+  getMovies(ACTIONAPI);
 });
+
+// This Event Listener waits for a user to click on the Newest nav-item
+// to call the getMovies function using the FAMILY API URL instead of the default one
 var familyMovies = document.getElementById("family");
 familyMovies.addEventListener("click", () => {
-    event.preventDefault();
-        getMovies(FAMILYAPI);
+  event.preventDefault();
+  getMovies(FAMILYAPI);
+});
 
- });
+// This Event Listener waits for a user to click on the Newest nav-item
+// to call the getMovies function using the DRAMA API URL instead of the default one
 var dramaMovies = document.getElementById("drama");
 dramaMovies.addEventListener("click", () => {
-    event.preventDefault();
-        getMovies(DRAMAAPI);
+  event.preventDefault();
+  getMovies(DRAMAAPI);
+});
 
- });
- var thrillerMovies = document.getElementById("thriller");
+// This Event Listener waits for a user to click on the Newest nav-item
+// to call the getMovies function using the THRILLER API URL instead of the default one
+var thrillerMovies = document.getElementById("thriller");
 thrillerMovies.addEventListener("click", () => {
-     event.preventDefault();
-         getMovies(THRILLERAPI);
+  event.preventDefault();
+  getMovies(THRILLERAPI);
+});
 
- });
- var comedyMovies = document.getElementById("comedy");
+// This Event Listener waits for a user to click on the Newest nav-item
+// to call the getMovies function using the COMEDY API URL instead of the default one
+var comedyMovies = document.getElementById("comedy");
 comedyMovies.addEventListener("click", () => {
-    event.preventDefault();
-        getMovies(COMEDYAPI);
-
- });
-
-// form.addEventListener("click", ("#newest") => {
-//    enterkey.preventDefault();
-//        getMovies(NEWESTAPI);
-//});
-
-
-// ████████╗███████╗░██████╗████████╗██╗███╗░░██╗░██████╗░
-// ╚══██╔══╝██╔════╝██╔════╝╚══██╔══╝██║████╗░██║██╔════╝░
-// ░░░██║░░░█████╗░░╚█████╗░░░░██║░░░██║██╔██╗██║██║░░██╗░
-// ░░░██║░░░██╔══╝░░░╚═══██╗░░░██║░░░██║██║╚████║██║░░╚██╗
-// ░░░██║░░░███████╗██████╔╝░░░██║░░░██║██║░╚███║╚██████╔╝
-// ░░░╚═╝░░░╚══════╝╚═════╝░░░░╚═╝░░░╚═╝╚═╝░░╚══╝░╚═════╝░
-//  - kc
-
-// Create nested function for genre > must split the genre ID / genre Name apart using .apply() or something else
-
-
-//key phrases that helps to research this part "modal"... "iframe"... "modal popup"..."modal iframe"
-//links
-    //https://ww3w.w3schools.com/html/html_iframe.asp
-    //https://www.w3schools.com/howto/howto_css_modals.asp
-    //https://sabe.io/tutorials/how-to-create-modal-popup-box
-    //https://codepen.io/2kool2/pen/LkaXay
-
-
-//when switching to electron, we will be using this..
-    //https://www.electronjs.org/docs/api/menu
-    // scroll down to .popup
-    
-    //https://www.electronjs.org/docs/api/browser-window
-    //modal windows and ready-to-show
-
-
-
-
-//creating modal for popups without sending user to another link - kc
-
-//inside the listfunctions html part
-
-// <button class="trigger">Click here to trigger the modal!</button>
-// <div class="modal">
-//     <div class="modal-content">
-//         <span class="close-button">×</span>
-//         <h1>Hello, I am a modal!</h1>
-//     </div>
-// </div>
-
-//testing popups - kc
-
-// var modal = document.querySelector(".modal");
-// var trigger = document.querySelector(".trigger");
-// var closeButton = document.querySelector(".close-button");
-
-// function toggleModal() {
-//     modal.classList.toggle("show-modal");
-// }
-
-// function windowOnClick(event) {
-//     if (event.target === modal) {
-//         toggleModal();
-//     }
-// }
-
-// trigger.addEventListener("click", toggleModal);
-// closeButton.addEventListener("click", toggleModal);
-// window.addEventListener("click", windowOnClick);
+  event.preventDefault();
+  getMovies(COMEDYAPI);
+});
