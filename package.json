@@ -7,6 +7,10 @@
     "start": "electron ."
   },
   "keywords": [],
-  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikehosseini/movie-app.git"
+  },
+  "author": "Group2 - CIT 384",
   "license": "ISC"
 }
