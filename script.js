@@ -46,12 +46,6 @@ const COMEDYAPI =
 const FAMILYAPI =
   "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=10751";
 
-// ██╗░░██╗███████╗██╗░░░██╗██╗███╗░░██╗
-// ██║░██╔╝██╔════╝██║░░░██║██║████╗░██║
-// █████═╝░█████╗░░╚██╗░██╔╝██║██╔██╗██║
-// ██╔═██╗░██╔══╝░░░╚████╔╝░██║██║╚████║
-// ██║░╚██╗███████╗░░╚██╔╝░░██║██║░╚███║
-// ╚═╝░░╚═╝╚══════╝░░░╚═╝░░░╚═╝╚═╝░░╚══╝
 
 //This will call the async function, getMovies when passing the URL link w/ api key
 getMovies(APIURL);
@@ -145,12 +139,7 @@ function listMovies(movies) {
   });
 }
 
-// ░█████╗░██╗░░░░░██╗░█████╗░███████╗
-// ██╔══██╗██║░░░░░██║██╔══██╗██╔════╝
-// ███████║██║░░░░░██║██║░░╚═╝█████╗░░
-// ██╔══██║██║░░░░░██║██║░░██╗██╔══╝░░
-// ██║░░██║███████╗██║╚█████╔╝███████╗
-// ╚═╝░░╚═╝╚══════╝╚═╝░╚════╝░╚══════╝
+
 
 // When we pull information from the API, this function will be called
 // the value of "ratings" will be checked against IF statements
