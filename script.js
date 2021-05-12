@@ -16,13 +16,6 @@ const form = document.getElementById("form");
 // Used for listmovies to put all movies in main
 const main = document.getElementById("main");
 
-// ░█████╗░██╗░░░░░██████╗░███████╗███╗░░██╗
-// ██╔══██╗██║░░░░░██╔══██╗██╔════╝████╗░██║
-// ███████║██║░░░░░██║░░██║█████╗░░██╔██╗██║
-// ██╔══██║██║░░░░░██║░░██║██╔══╝░░██║╚████║
-// ██║░░██║███████╗██████╔╝███████╗██║░╚███║
-// ╚═╝░░╚═╝╚══════╝╚═════╝░╚══════╝╚═╝░░╚══╝
-
 // Constant's containing URLS to pull movies from the TMDB API in a sorted order
 // Sorted by Newest
 const NEWESTAPI =
@@ -65,13 +58,6 @@ async function getMovies(url) {
   //responseData is an object with the .results being tied to metadata from the TMDB when we call information from the API
   listMovies(responseData.results);
 }
-
-// ███╗░░░███╗██╗██╗░░██╗███████╗
-// ████╗░████║██║██║░██╔╝██╔════╝
-// ██╔████╔██║██║█████═╝░█████╗░░
-// ██║╚██╔╝██║██║██╔═██╗░██╔══╝░░
-// ██║░╚═╝░██║██║██║░╚██╗███████╗
-// ╚═╝░░░░░╚═╝╚═╝╚═╝░░╚═╝╚══════╝
 
 function listMovies(movies) {
   // clears the inside of main tag
@@ -154,13 +140,6 @@ function getClassByRate(vote) {
     return "red";
   }
 }
-
-// ░█████╗░██╗░░░░░██████╗░███████╗███╗░░██╗
-// ██╔══██╗██║░░░░░██╔══██╗██╔════╝████╗░██║
-// ███████║██║░░░░░██║░░██║█████╗░░██╔██╗██║
-// ██╔══██║██║░░░░░██║░░██║██╔══╝░░██║╚████║
-// ██║░░██║███████╗██████╔╝███████╗██║░╚███║
-// ╚═╝░░╚═╝╚══════╝╚═════╝░╚══════╝╚═╝░░╚══╝
 
 // The following are the event listeners that allow user input to change
 // the order in which the movies appear on the website
