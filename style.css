@@ -1,4 +1,3 @@
-
 /* selecting all the elements: border-box means that the width and height properties include the content, padding, and border, but do not include the margin */
 * {
     box-sizing: border-box;
