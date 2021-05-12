@@ -16,12 +16,6 @@ const form = document.getElementById("form");
 // Used for listmovies to put all movies in main
 const main = document.getElementById("main");
 
-// ░█████╗░██╗░░░░░██████╗░███████╗███╗░░██╗
-// ██╔══██╗██║░░░░░██╔══██╗██╔════╝████╗░██║
-// ███████║██║░░░░░██║░░██║█████╗░░██╔██╗██║
-// ██╔══██║██║░░░░░██║░░██║██╔══╝░░██║╚████║
-// ██║░░██║███████╗██████╔╝███████╗██║░╚███║
-// ╚═╝░░╚═╝╚══════╝╚═════╝░╚══════╝╚═╝░░╚══╝
 
 // Constant's containing URLS to pull movies from the TMDB API in a sorted order
 // Sorted by Newest
@@ -47,6 +41,7 @@ const FAMILYAPI =
   "https://api.themoviedb.org/3/discover/movie?api_key=a7e57cb63bb601a072aac4703302f6dc&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&vote_count.gte=1&with_genres=10751";
 
 
+
 //This will call the async function, getMovies when passing the URL link w/ api key
 getMovies(APIURL);
 
@@ -66,12 +61,7 @@ async function getMovies(url) {
   listMovies(responseData.results);
 }
 
-// ███╗░░░███╗██╗██╗░░██╗███████╗
-// ████╗░████║██║██║░██╔╝██╔════╝
-// ██╔████╔██║██║█████═╝░█████╗░░
-// ██║╚██╔╝██║██║██╔═██╗░██╔══╝░░
-// ██║░╚═╝░██║██║██║░╚██╗███████╗
-// ╚═╝░░░░░╚═╝╚═╝╚═╝░░╚═╝╚══════╝
+
 
 function listMovies(movies) {
   // clears the inside of main tag
@@ -134,11 +124,10 @@ function listMovies(movies) {
          
            </a>
         `;
-
+    
     main.appendChild(movieEl);
   });
 }
-
 
 
 // When we pull information from the API, this function will be called
@@ -155,12 +144,7 @@ function getClassByRate(vote) {
   }
 }
 
-// ░█████╗░██╗░░░░░██████╗░███████╗███╗░░██╗
-// ██╔══██╗██║░░░░░██╔══██╗██╔════╝████╗░██║
-// ███████║██║░░░░░██║░░██║█████╗░░██╔██╗██║
-// ██╔══██║██║░░░░░██║░░██║██╔══╝░░██║╚████║
-// ██║░░██║███████╗██████╔╝███████╗██║░╚███║
-// ╚═╝░░╚═╝╚══════╝╚═════╝░╚══════╝╚═╝░░╚══╝
+
 
 // The following are the event listeners that allow user input to change
 // the order in which the movies appear on the website
